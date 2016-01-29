@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<%= yield %>
+
+
+</body>
+<script id="song-template" type="text/x-handlebars-template">
+  <li>{{artist}} - <a href="#" id="{{song_uri}}">{{title}}</a></li>
+</script>
+<script id="player-template" type="text/x-handlebars-template">
+<iframe src="https://embed.spotify.com/?uri={{spotify_uri}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+</script>
+</html>

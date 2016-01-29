@@ -49,7 +49,6 @@ $(function() {
   }
 
 
-
   $('body').on('click', 'li a', function(event) {
     event.preventDefault();
     $('#player *').remove();
@@ -64,6 +63,7 @@ $(function() {
         type : "post",
         data :  format
     });
+   $('#results *').remove();
   })
 })
 
@@ -86,9 +86,6 @@ function showFirstFiveSongs(json) {
   var i
   $('div#results').append('<ul></ul>');
   for (i = 0; i < resultsToShow; i++) {
-    // $('ul').append("<li>" + json.tracks.items[i].name + "</li>")
-
-    // console.log(json.tracks.items[i])
     song = {artist: json.tracks.items[i].artists[0].name,
             title: json.tracks.items[i].name,
             song_uri: encodeURIComponent(json.tracks.items[i].uri),
